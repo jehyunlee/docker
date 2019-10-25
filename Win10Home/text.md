@@ -84,4 +84,11 @@ $ docker run -ti --rm --name=firefox \ # docker 실행, interactive, 끝나고 �
     * 또는 `.bashrc`읽어오기: `$ source ~/.bashrc`
 
 5) `uim` 세팅
-    ```
+    * 아래와 같이 세팅  
+    ![set1](https://github.com/jehyunlee/docker/blob/master/Win10Home/images/uim_setting_1.png)  
+    
+    ![set2](https://github.com/jehyunlee/docker/blob/master/Win10Home/images/uim_setting_2.png)  
+    
+6) GUI 프로그램에서 한글입력 확인
+    ![firefox](https://github.com/jehyunlee/docker/blob/master/Win10Home/images/firefox.PNG) 
+    
