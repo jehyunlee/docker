@@ -19,7 +19,7 @@
 . Docker Toolbox가 c드라이브 전체를 mount하지만, 기본적으로 `Docker`와 공유할 수 있는 `volume`은 `C:\Users`뿐이다.  
 . 본인의 작업공간이 이 밖에 있다면 별도로 추가를 해야 `Docker`와 공유할 수 있다.  
 . 나는 `C:\Arbeitplatz\` 내부의 폴더를 공유할 예정이므로 아래와 같이 설정한다.  
-    * 이후 `Docker`를 설치하고 나서 `docker run`할 때, `-v [호스트 디렉토리]:[컨테이너 디렉토리]` 옵션을 붙여 실행한다.  
+    * 이후 `Docker`를 설치하고 나서 `docker run`할 때, `-v [호스트 디렉토리]:[컨테이너 디렉토리]` 옵션을 붙인다.  
 ![vmbox03](https://github.com/jehyunlee/docker/blob/master/Win10Home/images/vmbox03.PNG)  
 
 #### Step 3. `Dockerfile` 생성 또는 `pull`  
