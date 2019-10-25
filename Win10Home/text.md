@@ -60,3 +60,28 @@ $ docker run -ti --rm --name=firefox \ # docker 실행, interactive, 끝나고 �
              jupyter lab --ip=0.0.0.0 --port=8888 --allow-root # jupyter lab 실행  
 ``` 
     
+#### Step 5. 한글 입력 설치: `uim`
+> `WSL`에 `uim`설치: [[Link](https://sigmafelix.wordpress.com/2018/01/25/wsl-ubuntu%EC%97%90%EC%84%9C-%ED%95%9C%EA%B8%80-%EC%9E%85%EB%A0%A5-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/)]
+1) `docker run` 명령으로 컨테이너를 생성하고 `/bin/bash` 실행.  
+
+2) `uim`과 `uim-byeoru` 설치.    
+    ```bash
+    $ sudo apt install uim uim-byeoru  
+    ```
+    
+3) `~/.bashrc` 맨 아랫줄에 코드 추가.    
+    ```bash
+    export XIM=uim  
+    export XMODIFIERS=@im=uim  
+    export GTK_IM_MODULE=uim  
+    export QT_IM_MODULE=uim  
+    
+    if [ $SHLVL -eq 1 ]; then  
+      uim-xim &
+    fi
+    ```
+4) 리부팅.
+    * 또는 `.bashrc`읽어오기: `$ source ~/.bashrc`
+
+5) `uim` 세팅
+    ```
