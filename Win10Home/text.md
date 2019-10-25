@@ -27,4 +27,4 @@
 2) `mkdir`명령어로 `docker image`를 만들 디렉토리를 생성한다.  
 3) `vi` 등을 이용하여 디렉토리 내부에 `Dockerfile`을 만든다 (예: [[Link](https://github.com/jehyunlee/docker/blob/master/03/Dockerfile)])
    * 탐색기로 해당 위치(`C:\Program Files\Docker Toolbox` 하부)를 찾아들어가 윈도에서 만들어도 된다.  
-    
+![dockerfile01](https://github.com/jehyunlee/docker/blob/master/Win10Home/images/dockerfile01.PNG)    
