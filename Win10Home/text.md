@@ -49,13 +49,14 @@
     * 컨테이너 안에서 호스트의 리눅스 커널 기능 모두 사용 (ex. 컨테이너 안에 컨테이너 생성)  
 6) **jupyter 실행**: `--ip`, `--port`, `--allow-root`  
     * 지정하지 않으면 `OSError: [Errno 99] Cannot assign requested address` 에러 발생  
-    ```bash
-    $ docker run -ti --rm --name=firefox \ # docker 실행, interactive, 끝나고 지우기, 이름은 firefox  
-                     -e DISPLAY=$DISPLAY \  # DISPLAY 설정  
-                     --privileged \  # 호스트 리눅스 커널 기능 사용  
-                     -p 8888:8888 \  # 포트 설정  
-                     -v //c/Arbeitplatz/16_dockerplace/:/home/jehyunlee/workplace \  # 공유 폴더 설정  
-                     jehyun_jupyter \ # 컨테이너 이름  
-                     jupyter lab --ip=0.0.0.0 --port=8888 --allow-root # jupyter lab 실행  
-    ``` 
+    
+```bash
+$ docker run -ti --rm --name=firefox \ # docker 실행, interactive, 끝나고 지우기, 이름은 firefox  
+             -e DISPLAY=$DISPLAY \  # DISPLAY 설정  
+             --privileged \  # 호스트 리눅스 커널 기능 사용  
+             -p 8888:8888 \  # 포트 설정  
+             -v //c/Arbeitplatz/16_dockerplace/:/home/jehyunlee/workplace \  # 공유 폴더 설정  
+             jehyun_jupyter \ # 컨테이너 이름  
+             jupyter lab --ip=0.0.0.0 --port=8888 --allow-root # jupyter lab 실행  
+``` 
     
