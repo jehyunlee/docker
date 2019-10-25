@@ -28,3 +28,33 @@
 3) `vi` 등을 이용하여 디렉토리 내부에 `Dockerfile`을 만든다 (예: [[Link](https://github.com/jehyunlee/docker/blob/master/03/Dockerfile)])
    * 탐색기로 해당 위치(`C:\Program Files\Docker Toolbox` 하부)를 찾아들어가 윈도에서 만들어도 된다.  
 ![dockerfile01](https://github.com/jehyunlee/docker/blob/master/Win10Home/images/dockerfile01.PNG)    
+
+#### Step 4. 컨테이너 생성 & 실행
+1) `docker run` 명령으로 컨테이너를 생성하고 실행.  
+2) **GUI**: `DISPLAY 설정.
+    * `Docker Quickstart Terminal`: Default=192.168.99.100  
+        * IP 주소 확인: `$ docker-machine ip`  
+        * DISPLAY에 저장: `$ export DISPLAY=$(docker-machine ip):0.0`  
+    * `Windows Powershell`: Default=192.168.99.1
+        * IP 주소 확인: `> ipconfig`  
+        * DISPLAY에 저장: `set-variable -name DISPLAY -value 192.168.99.1:0.0`  
+    * 컨테이너 실행(`docker run`)시 옵션 추가: `-e DISPLAY=$DISPLAY`  
+3) **`Jupyter Notebook`**: `port`연결.  
+    * 컨테이너 실행(`docker run`)시 옵션 추가: `-p 8888:8888`    
+4) **공유 폴더**: `-v`   
+    * 컨테이너 실행(`docker run`)시 옵션 추가: `-v //c/Arbeitplatz/16_dockerplace/:/home/jehyunlee/workplace`   
+    * 드라이브명(c) 앞에는 반드시 `/`가 두 개(`//`) 들어가야 함.  
+5) **호스트 리눅스 커널 기능**: `--privileged` 옵션.  
+    * 컨테이너 안에서 호스트의 리눅스 커널 기능 모두 사용 (ex. 컨테이너 안에 컨테이너 생성)  
+6) **jupyter 실행**: `--ip`, `--port`, `--allow-root`  
+    * 지정하지 않으면 `OSError: [Errno 99] Cannot assign requested address` 에러 발생  
+    ```bash
+    $ docker run -ti --rm --name=firefox \ # docker 실행, interactive, 끝나고 지우기, 이름은 firefox  
+                     -e DISPLAY=$DISPLAY \  # DISPLAY 설정  
+                     --privileged \  # 호스트 리눅스 커널 기능 사용  
+                     -p 8888:8888 \  # 포트 설정  
+                     -v //c/Arbeitplatz/16_dockerplace/:/home/jehyunlee/workplace \  # 공유 폴더 설정  
+                     jehyun_jupyter \ # 컨테이너 이름  
+                     jupyter lab --ip=0.0.0.0 --port=8888 --allow-root # jupyter lab 실행  
+    ``` 
+    
