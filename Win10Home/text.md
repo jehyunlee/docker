@@ -31,6 +31,7 @@
 
 #### Step 4. 컨테이너 생성 & 실행
 1) `docker run` 명령으로 컨테이너를 생성하고 실행.  
+  
 2) **GUI**: `DISPLAY 설정.
     * `Docker Quickstart Terminal`: Default=192.168.99.100  
         * IP 주소 확인: `$ docker-machine ip`  
