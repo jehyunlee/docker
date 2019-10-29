@@ -28,5 +28,5 @@ docker run -it --name=geo -e DISPLAY=$DISPLAY -v //c/Arbeitplatz/:/workplace -p 
     * [:basic_geo](https://github.com/jehyunlee/docker/blob/master/02_dsml/basic_geo/Dockerfile)
       * [DEV] `shapely`, `geopandas`, `descartes`, `folium`
       * [ENV] `jupyter lab` extensions
-        - `geojson`, `mathjax3`
+        - [`geojson`](https://www.npmjs.com/package/@jupyterlab/geojson-extension), [`mathjax3`](https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference)
         
