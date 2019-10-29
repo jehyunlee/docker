@@ -1,11 +1,14 @@
 # `docker` 
 
-## 1. Docker run script
+## 1. Docker on Windows 10 home
+* [personal history of struggling](https://github.com/jehyunlee/docker/blob/master/Win10Home/text.md)
+
+## 2. Docker run script
 ```bash
 docker run -it --name=geo -e DISPLAY=$DISPLAY -v //c/Arbeitplatz/:/workplace -p 8888:8888 --shm-size 2g jehyunlee/02dsml:basic_geo
 ```
 
-## 2. Dockerfiles
+## 3. Dockerfiles
 01. [jehyunlee/00base](https://github.com/jehyunlee/docker/blob/master/00_base)  
     * :latest
       * [ubuntu] `ubuntu 16.04`
