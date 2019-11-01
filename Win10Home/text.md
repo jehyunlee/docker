@@ -51,7 +51,9 @@
 2) 8888포트를 호스트와 게스트에 모두 추가한다.  
 ![vmbox11](https://github.com/jehyunlee/docker/blob/master/Win10Home/images/vmbox11.PNG)  
 
-3) 비로소 `jupyter lab` `google-drive extension`과 `git extension`의 사용이 가능하다.  
+3) 호스트(`windows`)에서 웹브라우저를 실행시키고 주소창에 `localhost:8888`을 입력한다.  
+   `jupyter lab` `google-drive extension`과 `git extension`의 사용이 가능하다.    
+   * 컨테이너에서 실행시킨 `firefox`에서는 `google-drive extension`의 사용이 불가능하다.  
 ![jlab01](https://github.com/jehyunlee/docker/blob/master/Win10Home/images/jlab01.PNG)  
 
 ### Step 5. `Dockerfile` 생성 또는 `pull`  
