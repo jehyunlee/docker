@@ -5,8 +5,9 @@
 
 ## 2. Docker run script
 ```bash
-docker run -it --name=geo -e DISPLAY=$DISPLAY -v //c/Arbeitplatz/:/workplace -p 8888:8888 --shm-size 2g jehyunlee/02dsml:basic_geo
+docker run -it --name=geo -e DISPLAY=$DISPLAY -v //c/Arbeitplatz/:/workplace -p 8888:8888 --shm-size 4g jehyunlee/02_dsml:02_geocoding
 ```
+
 
 ## 3. Dockerfiles
 01. [jehyunlee/00_base](https://github.com/jehyunlee/docker/blob/master/00_base)  
