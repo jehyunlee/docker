@@ -7,7 +7,7 @@
 ```bash
 docker run -it --name=geo -e DISPLAY=$DISPLAY -v //c/Arbeitplatz/:/workplace -p 8888:8888 --shm-size 4g jehyunlee/02_dsml:02_geocoding
 ```
-
+* `docker run` options: [[Link](https://github.com/jehyunlee/docker/blob/master/Win10Home/text.md#step-4-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88-%EC%83%9D%EC%84%B1--%EC%8B%A4%ED%96%89)]
 
 ## 3. Dockerfiles
 01. [jehyunlee/00_base](https://github.com/jehyunlee/docker/blob/master/00_base)  
