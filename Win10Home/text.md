@@ -22,11 +22,34 @@
     * 이후 `Docker`를 설치하고 나서 `docker run`할 때, `-v [호스트 디렉토리]:[컨테이너 디렉토리]` 옵션을 붙인다.  
 ![vmbox03](https://github.com/jehyunlee/docker/blob/master/Win10Home/images/vmbox03.PNG)  
 
+### Step 3. 하드웨어 자원 할당 설정
+1) 하드웨어 자원 할당을 설정하기 위해서는 `docker`를 정지시켜야 한다.  
+  `Oracle VM Virtual Box`에서 `전원 끄기`를 누른다.
+![vmbox05](https://github.com/jehyunlee/docker/blob/master/Win10Home/images/vmbox05.PNG)  
+
+2) `시스템`탭에서 `메모리`를 설정한다.  
+  기본 메모리가 1G로 설정되어 있다. 슬라이드 바를 움직이거나 숫자를 입력해서 자원을 늘린다.  
+![vmbox06](https://github.com/jehyunlee/docker/blob/master/Win10Home/images/vmbox06.PNG)  
+
+3) `시스템`탭에서 `프로세서`를 설정한다.  
+  기본 메모리가 CPU 1개로 설정되어 있다. 슬라이드 바를 움직이거나 숫자를 입력해서 자원을 늘린다.  
+![vmbox07](https://github.com/jehyunlee/docker/blob/master/Win10Home/images/vmbox07.PNG)  
+
+4) `디스플레이` 자원도 설정이 가능하다.
+  `화면`에서 비디오 메모리를 늘리고, `3차원 가속 사용하기`를 체크했다.  
+![vmbox08](https://github.com/jehyunlee/docker/blob/master/Win10Home/images/vmbox08.PNG)  
+
+5) `docker` 다시 시작.
+  메인 화면에서 `헤드리스 시작`을 눌러 도커를 다시 시작한다.  
+![vmbox09](https://github.com/jehyunlee/docker/blob/master/Win10Home/images/vmbox09.PNG)  
+
 ### Step 3. `Dockerfile` 생성 또는 `pull`  
 1) `Docker Quickstart Terminal`을 실행한다.  
 2) `mkdir`명령어로 `docker image`를 만들 디렉토리를 생성한다.  
 3) `vi` 등을 이용하여 디렉토리 내부에 `Dockerfile`을 만든다 (예: [[Link](https://github.com/jehyunlee/docker/blob/master/03/Dockerfile)])
    * 탐색기로 해당 위치(`C:\Program Files\Docker Toolbox` 하부)를 찾아들어가 윈도에서 만들어도 된다.  
+   * `Dockerfile`에 `RUN`등 명령어가 들어갈 때마다 `layer`가 생기는데, `layer`수가 많아지면 `build`가 안된다.  
+     `&&`명령을 활용해서 최대한 압축하자.  
 ![dockerfile01](https://github.com/jehyunlee/docker/blob/master/Win10Home/images/dockerfile01.PNG)    
 
 ### Step 4. 컨테이너 생성 & 실행
@@ -55,8 +78,8 @@ $ docker run -ti --rm --name=firefox \ # docker 실행, interactive, 끝나고 �
              -e DISPLAY=$DISPLAY \  # DISPLAY 설정  
              --privileged \  # 호스트 리눅스 커널 기능 사용  
              -p 8888:8888 \  # 포트 설정  
-             -v //c/Arbeitplatz/16_dockerplace/:/home/jehyunlee/workplace \  # 공유 폴더 설정  
-             jehyun_jupyter \ # 컨테이너 이름  
+             -v //c/Arbeitplatz:/workplace \  # 공유 폴더 설정  
+             jehyunlee/01_anaconda:02_jlabext \ # 이미지 이름  
              jupyter lab --ip=0.0.0.0 --port=8888 --allow-root # jupyter lab 실행  
 ``` 
     
