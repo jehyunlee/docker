@@ -1,0 +1,40 @@
+#!/bin/bash
+
+#>>>>> set display
+if [ "$DISPLAY" = "needs-to-be-defined" ]; then
+  export $DISPLAY=192.168.99.1:0.0;
+  echo "# set DISPLAY=192.168.99.1:0.0";
+else
+  echo "# already set DISPLAY=$DISPLAY";
+fi
+#<<<<< set display
+
+#>>>>> find image, else pull
+export REPO='jehyunlee/02_dsml'
+export TAG='02_geocoding'
+export images=$(docker images)
+export psan=$(docker ps -a | wc -c)
+export psn=$(docker ps | wc -c)
+export CONTAINER='geo'
+
+
+if [[ $images =~ $REPO  ]] && [[ $images =~ $TAG ]]; then
+  if [[ 126 < $psn ]] && [[ 126 < $psan ]]; then
+    # Case 1: container is running.
+    docker attach $CONTAINER;
+  elif [[ 126 < $psan ]]; then
+    # Case 2: container is stopped. 
+    docker start $CONTAINER;
+    docker attach $CONTAINER;
+  else
+    # Case 3: image exists, but container is not prepared
+    docker run -it --name=$CONTAINER -e DISPLAY=$DISPLAY -v //c/Arbeitplatz/:/workplace -p 8888:8888 --shm-size 4g $REPO:$TAG;
+  fi;
+else
+  # Case 4: neither image nor container. start from pull image.
+  docker pull $REPO:$TAG;
+  docker run -it --name=$CONTAINER -e DISPLAY=$DISPLAY -v //c/Arbeitplatz/:/workplace -p 8888:8888 --shm-size 4g $REPO:$TAG;
+fi
+#<<<<< find image, else pull
+
+
