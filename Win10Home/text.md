@@ -43,7 +43,18 @@
   메인 화면에서 `헤드리스 시작`을 눌러 도커를 다시 시작한다.  
 ![vmbox09](https://github.com/jehyunlee/docker/blob/master/Win10Home/images/vmbox09.PNG)  
 
-### Step 3. `Dockerfile` 생성 또는 `pull`  
+### Step 4. 네트워크 포트 설정
+1) `docker`와 호스트의 통신을 위해 네트워크 포트를 설정한다.  
+  `Oracle VM Virtual Box`의 `설정`에서 `네트워크`를 선택한다.
+![vmbox10](https://github.com/jehyunlee/docker/blob/master/Win10Home/images/vmbox10.PNG)  
+
+2) 8888포트를 호스트와 게스트에 모두 추가한다.  
+![vmbox11](https://github.com/jehyunlee/docker/blob/master/Win10Home/images/vmbox11.PNG)  
+
+3) 비로소 `jupyter lab` `google-drive extension`과 `git extension`의 사용이 가능하다.  
+![jlab01](https://github.com/jehyunlee/docker/blob/master/Win10Home/images/jlab01.PNG)  
+
+### Step 5. `Dockerfile` 생성 또는 `pull`  
 1) `Docker Quickstart Terminal`을 실행한다.  
 2) `mkdir`명령어로 `docker image`를 만들 디렉토리를 생성한다.  
 3) `vi` 등을 이용하여 디렉토리 내부에 `Dockerfile`을 만든다 (예: [[Link](https://github.com/jehyunlee/docker/blob/master/03/Dockerfile)])
@@ -52,7 +63,7 @@
      `&&`명령을 활용해서 최대한 압축하자.  
 ![dockerfile01](https://github.com/jehyunlee/docker/blob/master/Win10Home/images/dockerfile01.PNG)    
 
-### Step 4. 컨테이너 생성 & 실행
+### Step 6. 컨테이너 생성 & 실행
 1) `docker run` 명령으로 컨테이너를 생성하고 실행.  
   
 2) **GUI**: `DISPLAY 설정.
@@ -83,7 +94,7 @@ $ docker run -ti --rm --name=firefox \ # docker 실행, interactive, 끝나고 �
              jupyter lab --ip=0.0.0.0 --port=8888 --allow-root # jupyter lab 실행  
 ``` 
     
-### Step 5. 한글 입력 설치: `uim`
+### Step 7. 한글 입력 설치: `uim`
 > `WSL`에 `uim`설치: [[Link](https://sigmafelix.wordpress.com/2018/01/25/wsl-ubuntu%EC%97%90%EC%84%9C-%ED%95%9C%EA%B8%80-%EC%9E%85%EB%A0%A5-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/)]
 1) `docker run` 명령으로 컨테이너를 생성하고 `/bin/bash` 실행.  
 
