@@ -10,8 +10,8 @@ fi
 #<<<<< set display
 
 #>>>>> find image, else pull
-export REPO='jehyunlee/02_dsml'
-export TAG='02_geocoding'
+export REPO='jehyunlee/work'
+export TAG='geo'
 export images=$(docker images)
 export psan=$(docker ps -a | wc -c)
 export psn=$(docker ps | wc -c)
