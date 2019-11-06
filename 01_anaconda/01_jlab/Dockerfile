@@ -18,13 +18,20 @@ RUN echo 'export PATH=/opt/conda/bin:$PATH' >> ~root/.bashrc \
 ENV PATH="/opt/conda/bin:${PATH}"
 RUN conda install -y nodejs -c conda-forge
 
+RUN set -ex ;\
+    jupyter notebook --generate-config --allow-root ;\
+    sed -i -e "s/#c.NotebookApp.ip .*/c.NotebookApp.ip = '0.0.0.0'/g"  /root/.jupyter/jupyter_notebook_config.py ;\
+    sed -i -e "s/#c.NotebookApp.port .*/c.NotebookApp.port = 8888/g"  /root/.jupyter/jupyter_notebook_config.py ;\
+    sed -i -e "s/#c.NotebookApp.allow_root .*/c.NotebookApp.allow_root = True/g"  /root/.jupyter/jupyter_notebook_config.py ;\
+    sed -i -e "s/#c.NotebookApp.token .*/c.NotebookApp.token = u''/g"  /root/.jupyter/jupyter_notebook_config.py
+
 # Working enviroment preparation
 RUN mkdir -p /app \
     && echo "bash -c 'source ~root/.bashrc'" > /app/start.sh \
     && echo "/bin/bash" > /app/start.sh \
     && chmod +x /app/start.sh
 
-RUN echo "alias jlab='jupyter lab --ip=0.0.0.0 --port=8888 --allow-root '" >> ~root/.bashrc \
+RUN echo "alias jlab='jupyter lab --no-browser '" >> ~root/.bashrc \
     && echo "alias untar='tar -zxvf '" >> ~root/.bashrc \
     && echo "alias wget='wget -c '" >> ~root/.bashrc \
     && echo "alias c='clear'" >> ~root/.bashrc \
