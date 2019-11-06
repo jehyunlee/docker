@@ -7,6 +7,8 @@ RUN apt-get update
 #>>>>> jupyter lab extensions
 RUN conda install -c conda-forge ipywidgets
 RUN jupyter labextension install @jupyterlab/github \
+    && apt-get install texlive-xetex texlive-fonts-recommended texlive-generic-recommended \
+    && apt-get install texlive-generic-extra \
     && jupyter labextension install @jupyterlab/latex \
     && jupyter labextension install jupyterlab-drawio \
     && jupyter labextension install @krassowski/jupyterlab_go_to_definition \
