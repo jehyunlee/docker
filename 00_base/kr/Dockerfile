@@ -2,7 +2,9 @@ FROM ubuntu:16.04
 MAINTAINER Jehyun Lee <jehyun.lee@gmail.com>
 
 USER root
-RUN sed -i 's/archive.ubuntu.com/kr.archive.ubuntu.com/g' /etc/apt/sources.list
+# RUN sed -i 's/archive.ubuntu.com/kr.archive.ubuntu.com/g' /etc/apt/sources.list
+RUN sed -i 's/archive.ubuntu.com/ftp.daum.net/g' /etc/apt/sources.list \
+    && rm -rfv /var/lib/apt/lists/* && sed -i 's/# \(.*multiverse$\)/\1/g' /etc/apt/sources.list && apt-get update && apt-get -y upgrade
 
 RUN apt-get update && \
     apt-get upgrade -y && \
@@ -22,7 +24,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
     fonts-nanum-coding uim uim-byeoru
 
 RUN locale-gen ko_KR.UTF-8
-#ENV LANG ko_KR.UTF-8
+ENV LANG ko_KR.UTF-8
 ENV LANGUAGE ko_KR.UTF-8
 ENV LC_ALL ko_KR.UTF-8
 
