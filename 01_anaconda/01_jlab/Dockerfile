@@ -41,9 +41,10 @@ RUN echo "alias jlab='jupyter lab --no-browser '" >> ~root/.bashrc \
     && echo "alias ll='ls -la'" >> ~root/.bashrc \
     && echo "alias l.='ls -d .* --color=auto'" >> ~root/.bashrc \
     && echo "alias grep='grep --color=auto'" >> ~root/.bashrc \
-    && echo 'PYTHONPATH="/app/python:${PYTHONPATH}' >> ~root/.bashrc \
-    && mkdir /workplace 
-    ##&& apt-get install -y python-pydot python-pydot-ng graphviz
+    && echo 'PYTHONPATH="/app/python:${PYTHONPATH}"' >> ~root/.bashrc \
+    && mkdir /workplace \
+    && apt-get update \
+    && apt-get install -y python-pydot python-pydot-ng graphviz
     
 WORKDIR /workplace
 EXPOSE 8888
