@@ -22,7 +22,8 @@ RUN jupyter labextension install @jupyterlab/github \
     && jupyter labextension install @deathbeds/jupyterlab_graphviz \
     && jupyter labextension install @jupyterlab/git \
     && pip install --upgrade jupyterlab-git \
-    && jupyter lab build
+    && jupyter lab build \
+    && echo "c.LatexConfig.latex_command = 'pdflatex'" >> ~root/.jupyter/jupyter_notebook_config.py \
 #<<<<<< jupyter lab extensions
 
 # Working enviroment preparation
