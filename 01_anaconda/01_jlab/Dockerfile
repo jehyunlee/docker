@@ -16,7 +16,8 @@ RUN echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh \
 RUN echo 'export PATH=/opt/conda/bin:$PATH' >> ~root/.bashrc \
     && echo 'export PATH=/app/:$PATH' >> ~root/.bashrc 
 ENV PATH="/opt/conda/bin:${PATH}"
-RUN conda install -y nodejs -c conda-forge
+RUN conda install -y nodejs -c conda-forge \
+    && conda install -y pydot graphviz
 
 RUN set -ex ;\
     jupyter notebook --generate-config --allow-root ;\
@@ -29,7 +30,8 @@ RUN set -ex ;\
 RUN mkdir -p /app \
     && echo "bash -c 'source ~root/.bashrc'" > /app/start.sh \
     && echo "/bin/bash" > /app/start.sh \
-    && chmod +x /app/start.sh
+    && chmod +x /app/start.sh \
+    && mkdir -p /app/python
 
 RUN echo "alias jlab='jupyter lab --no-browser '" >> ~root/.bashrc \
     && echo "alias untar='tar -zxvf '" >> ~root/.bashrc \
@@ -39,7 +41,9 @@ RUN echo "alias jlab='jupyter lab --no-browser '" >> ~root/.bashrc \
     && echo "alias ll='ls -la'" >> ~root/.bashrc \
     && echo "alias l.='ls -d .* --color=auto'" >> ~root/.bashrc \
     && echo "alias grep='grep --color=auto'" >> ~root/.bashrc \
-    && mkdir /workplace
+    && echo 'PYTHONPATH="/app/python:${PYTHONPATH}' >> ~root/.bashrc \
+    && mkdir /workplace 
+    ##&& apt-get install -y python-pydot python-pydot-ng graphviz
     
 WORKDIR /workplace
 EXPOSE 8888
