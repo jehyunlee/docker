@@ -6,7 +6,10 @@ RUN apt-get update
 
 #>>>>> machine learning 
 RUN conda install -y tensorflow=1.14* keras \
-    && conda install pytorch torchvision cpuonly -c pytorch
+    && conda install -y pytorch torchvision cpuonly -c pytorch \
+    && pip install xgboost \
+    && pip install lightgbm 
+
 #<<<<<< machine learning
 
 #>>>>>> data analysis
@@ -24,5 +27,10 @@ RUN BASE_URL=https://github.com/mozilla/geckodriver/releases/download \
 
 # Working enviroment preparation
 WORKDIR /workplace
+
+# IPython
 EXPOSE 8888
+# Tensorboard
+EXPOSE 6006
+
 CMD /app/start.sh
