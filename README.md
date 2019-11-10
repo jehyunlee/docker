@@ -30,7 +30,7 @@
       * [ENV] `jupyter lab` extensions
         - [`ipywidget`](https://ipywidgets.readthedocs.io/en/latest/), [`github`](https://github.com/jupyterlab/jupyterlab-github), [`latex`](https://github.com/jupyterlab/jupyterlab-latex), [`drawio`](https://github.com/QuantStack/jupyterlab-drawio), [`go_to_definition`](https://github.com/krassowski/jupyterlab-go-to-definition), [`code_formatter`](https://github.com/ryantam626/jupyterlab_code_formatter), [`toc`](https://github.com/jupyterlab/jupyterlab-toc), [`google-drive`](https://github.com/jupyterlab/jupyterlab-google-drive), [`git`](https://github.com/jupyterlab/jupyterlab-git), [`mathjax3`](https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference), [`graphviz`](https://github.com/deathbeds/jupyterlab_graphviz)  
             * `latex`:   
-                (1) `c.LatexConfig.latex_command = 'pdflatex'` should be added on `/root/.jupyter/jupyter_notebook_config.py`.  
+                (1) `c.LatexConfig.latex_command = 'pdflatex'` should be added on `/root/.jupyter/jupyter_notebook_config.py`, as implemented in Dockerfile)
                 (2) For `missing PACKAGE (.sty)` error, corresponding `.sty` file should be pasted on `/usr/share/texlive/texmf-dist/tex/latex/[PACKAGE_NAME]/[PACKAGE.sty]` and `mktexlsr` is executed for database update.    
 03. [jehyunlee/02_dsml](https://github.com/jehyunlee/docker/blob/master/02_dsml)  
     * [:01_dsml](https://github.com/jehyunlee/docker/blob/master/02_dsml/01_dsml/Dockerfile)
