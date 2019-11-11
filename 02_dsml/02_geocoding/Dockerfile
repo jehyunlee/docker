@@ -13,11 +13,12 @@ RUN pip install geopandas==0.5.1 \
     && pip install cython \
     && conda install -y --channel conda-forge cartopy \
     && pip install contextily \
-    && jupyter labextension install @jupyterlab/geojson-extension \
-    && jupyter labextension install @jupyterlab/mathjax3-extension
+    && jupyter labextension install @jupyterlab/geojson-extension 
 #<<<<<< geocoding
 
-# Working enviroment preparation
-WORKDIR /workplace
+# IPython
 EXPOSE 8888
+# Tensorboard
+EXPOSE 6006
+
 CMD /app/start.sh
