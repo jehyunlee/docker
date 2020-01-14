@@ -10,8 +10,8 @@ fi
 #<<<<< set display
 
 #>>>>> find image, else pull
-export REPO='jehyunlee/work'
-export TAG='hexo'
+export REPO='jehyunlee/[PRIVATE_REPO]'
+export TAG='[PRIVATE_TAG]'
 export images=$(docker images)
 export psan=$(docker ps -a | wc -c)
 export psn=$(docker ps | wc -c)
