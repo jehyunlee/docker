@@ -41,4 +41,8 @@
       * [DEV] [`shapely`](https://shapely.readthedocs.io/en/stable/manual.html), [`geopandas`](https://datascienceschool.net/view-notebook/ef921dc25e01437b9b5c532ba3b89b02/), [`descartes`](https://pypi.org/project/descartes/), [`folium`](https://github.com/python-visualization/folium) 
       * [ENV] `jupyter lab` extensions
         - [`geojson`](https://www.npmjs.com/package/@jupyterlab/geojson-extension)
-        
+    * [:03_dsml_TF2](https://github.com/jehyunlee/docker/blob/master/02_dsml/03_dsml_TF2/Dockerfile)
+      * [DEV] `tensorflow 2.0.0`, `pytorch 1.4.0`, `torchvision 0.5.0`, `imbalanced-learn 0.6.2`, `smote_variants`, `imbalanced_databases`, `lightgbm 2.3.1`, `xgboost 1.0.2`, `hyperspy 1.5.2`, `selenium 3.141.0`, `plotly 4.5.4`, `plotly-geo 1.0.0`, `modin[all] 0.7.2`, `fastapi 0.52.0`, `uvicorn 0.11.3`, `gunicorn 20.0.4`, `fastprogress 0.2.2`, `optuna 1.2.0`, `geckodriver`
+      * [ENV] `midnight commander`, `LANG="en_US.UTF-8"`
+      * [CMD] `["jupyter", "lab", "--no-browser"]`
+      
