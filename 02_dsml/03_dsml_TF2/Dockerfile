@@ -8,6 +8,7 @@ RUN apt-get update
 RUN conda install -y tensorflow \
     && conda install -y pytorch torchvision cpuonly -c pytorch \
     && pip install -U imbalanced-learn \
+     && pip install smote_variants imbalanced_databases \
     && pip install xgboost lightgbm 
 #<<<<<< machine learning
 
@@ -19,7 +20,6 @@ RUN conda install -c conda-forge hyperspy \
     && pip install fastapi uvicorn gunicorn \
     && pip install fastprogress \
     && pip install optuna \
-    && pip install smote_variants imbalanced_databases \
     && apt-get install mc
 #<<<<<< data analysis
 
